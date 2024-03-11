@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task Tracker</title>
+<style>
+    body
+    {
+        background-color: rgb(76, 145, 145);
+    }
+  
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  background-image:url('b.jpg');
+  background-color:rgb(64, 147, 216);
+}
+
+input[type="text"] {
+  width: 100%;
+  background-color: rgb(29, 65, 107);
+  margin-bottom: 10px;
+   border-radius: 20px;
+  padding: 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+
+</style>
+</head>
+<body>
+   
+<div class="container">
+  <h2>Task Tracker</h2>
+  <input type="text" id="taskInput" placeholder="Add new task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+function addTask() {
+  var taskInput = document.getElementById("taskInput");
+  var taskList = document.getElementById("taskList");
+  
+  if (taskInput.value === "") {
+    alert("Please enter a task.");
+    return;
+  }
+
+  var li = document.createElement("li");
+  li.textContent = taskInput.value;
+  li.addEventListener("click", toggleTask);
+
+  taskList.appendChild(li);
+  taskInput.value = "";
+}
+
+function toggleTask() {
+  this.classList.toggle("completed");
+}
+</script>
+
+</body>
+</html>
